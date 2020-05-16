@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :works
   resources :users
+
+
  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
@@ -11,10 +13,13 @@ end
 # get 'users/show'
 # get 'users/edit'
 # get 'users/create'
-# get 'works/index'
+# get '/works', to: "works#index", as work
 # get 'works/show'
 # get 'works/edit'
 # get 'works/create'
+
+
+
 
 
 

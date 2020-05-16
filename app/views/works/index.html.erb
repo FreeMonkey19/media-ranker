@@ -1,2 +1,20 @@
-<h1>Works#index</h1>
-<p>Find me in app/views/works/index.html.erb</p>
+<h2>index<h2>
+
+<h1>All Works:</h1>
+
+<% if @works.length > 0 %>
+  <ul>
+    <% @works.each do |work| %>
+      <li>
+     <%= link_to work.title, work_path(work.id) %>
+       <%# link_to "Rating |" %>
+        <%# link_to "Edit |", edit_passenger_path(passenger.id) %>
+            <%# link_to('Delete!', delete_passenger_path(passenger.id), {class: 'button', method: :delete, data: {confirm: 'Are you sure?'}, alt: 'delete passenger button'}) %>
+
+     </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <h3>No works in the system!</h3>
+<% end %>
