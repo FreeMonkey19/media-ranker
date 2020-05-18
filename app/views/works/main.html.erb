@@ -1,1 +1,57 @@
-<h1>Main</main>
+
+<section class="row">
+  <div>
+    <h2>
+      <span class="spotlight-header--prefix">Media Spotlight:</span>
+      <%# link to the spotlight book goes here
+      authors name goes under the words Media Spotlight
+      and then description <%# %>
+    </h2>
+  </div>
+</section>
+
+<hr class="root-hr"/>
+
+
+  <div class="row">
+  
+    <div class="col top-ten"> <h2>Top Movies</h2>
+     <ul>
+          <% @works.top_ten("movie").each do |work| %>
+          <li>
+            <h4 class="top-ten-creator">
+               <%= link_to(work.title, work_path(work.id), alt: "link to details for a top ten movie") %> <small>by <%= work.creator %></small>
+             </h4>
+          <% end %>
+          </li>
+      </ul>
+    </div>
+
+
+
+        <div class="col top-ten"> <h2>Top Books</h2>
+         <ul>
+            <% @works.top_ten("book").each do |work| %>
+          <li>
+            <h4 class="top-ten-creator">
+               <%= link_to(work.title, work_path(work.id), alt: "link to details for a top ten book") %> <small>by <%= work.creator %></small>
+             </h4>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+                
+        <div class="col top-ten"> <h2>Top Albums</h2>
+          <ul>
+            <% @works.top_ten("album").each do |work| %>
+            <li>
+             <h4 class="top-ten-creator">
+               <%= link_to(work.title, work_path(work.id), alt: "link to details for a top ten album") %> <small>by <%= work.creator %></small>
+             </h4>
+            <% end %>
+            </li>
+         </ul>
+        </div>
+    
+  </div>
+ 
