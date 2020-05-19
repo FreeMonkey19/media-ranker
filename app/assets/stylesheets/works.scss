@@ -1,3 +1,35 @@
 // Place all the styles related to the Works controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.top-ten h2 {
+  border-bottom: 2px solid;
+  border-bottom-color: #B2DFDB;
+}
+
+.top-ten-creator {
+  color: #bbc3cb
+}
+
+// h1, h2, h3, h4, h5 {
+//   color:  #47ada4;
+// }
+
+a {
+  color: #47ada4;
+  text-decoration: none;
+  // font-weight: 900;
+}
+
+
+
+ul {
+  list-style-type: none;
+}
+
+
+// show page
+.media-details {
+  color: blue
+}

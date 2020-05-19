@@ -2,7 +2,7 @@
 
   <section class="media-table">
 
-    <% if @works.blank? %>
+    <% if @works.nil? %>
     <h3>Search Results</h3>
     <h4>There are no works containing the term <%= params[:search] %>.</h4>
 

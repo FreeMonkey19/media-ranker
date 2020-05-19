@@ -1,13 +1,12 @@
+
 <%= form_with model: @work, class: 'create_work' do |f| %>
 <p>Please provide the appropriate information:<p>
-
-
 
   <%= f.label :category %>
   <%= f.select(:category, ["movie", "album", "book"]) %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+ <%= f.text_field :title %>
 
   <%= f.label :creator %>
   <%= f.text_field :creator %>

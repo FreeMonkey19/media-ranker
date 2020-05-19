@@ -14,29 +14,3 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 @import "**/*";
-
-
-// main.html.erb
-.top-ten h2 {
-  border-bottom: 2px solid;
-  border-bottom-color: #B2DFDB;
-}
-
-h1, h2, h3, h4, h5 {
-  color:  #47ada4;
-}
-
-a {
-  color: #47ada4;
-  text-decoration: none;
-  font-weight: 900;
-}
-
-.top-ten-creator {
-  color: #bbc3cb
-}
-
-ul {
-  list-style-type: none;
-}
-

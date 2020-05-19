@@ -1,13 +1,13 @@
-<section class="media-details columns large-6 small-12">
+<div class="media-details">
     <h3><%= @work.title %></h3>
-    <p><%= @work.creator %></p>
-    <p><%= @work.publication_year %></p>
+    <p>Created by: <%= @work.creator %></p>
+    <p>Published: <%= @work.publication_year %></p>
     <p><%= @work.description %></p>
 
     <a><%= link_to("Back to media ranks", root_path, alt: "link to media ranker main page", class: "button") %></a>
     <a><%= link_to("Edit", edit_work_path(@work.id), alt: "link to edit work", class: "button") %></a>
     <a><%= link_to("Delete", work_path(@work.id), method: :delete, alt: "link to delete work", class: "alert button", data: {confirm: "Are you sure? Deleting is permanent!"}) %></a>
-</section>
+</div>
 
 
 
