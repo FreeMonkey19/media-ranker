@@ -8,9 +8,14 @@ describe Work do
     end
 
     it "it is valid when all fields are present" do
-     result = @work.valid?
+    
+      expect(@work.valid?).must_equal true
+    end
 
-      expect(result).must_equal true
+    it "fails validation when there is a missing field" do
+      @work.title = nil
+
+      expect(@work.valid?).must_equal false
     end
   end
 end
