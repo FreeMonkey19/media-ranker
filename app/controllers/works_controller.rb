@@ -1,4 +1,7 @@
 class WorksController < ApplicationController
+
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+
   def main
     @works = Work.order(:category)
   end
@@ -74,5 +77,9 @@ class WorksController < ApplicationController
 
   def work_params
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
+  end
+
+  def find_work
+    @work = Work.find_by(id: params[:id])
   end
 end
