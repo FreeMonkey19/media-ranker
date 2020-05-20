@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MonkeyMediaRanker</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-  <header class="main-header">
-     <h2 class="header-inline"><%= link_to("Media Ranker", root_path, alt: "link to media ranker main page", class: "button") %></h2>
-     <h4 class="header-inline">| Ranking the Best of Everything</h4>
-     <nav class="main_nav">
-     <ul>
-     <li><%= link_to "View top media", root_path, alt: "link to main page", class: "button" %></li>
-     <li><%= link_to "View all media", works_path, alt: "link to all media", class: "button" %></li>
-     <li><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "button" %></li>
-     <% if session[:user_id] %>
-      <li><%= link_to "Log out", logout_path, method: :post %></li>
-     <%else %> 
-      <li><%= link_to "Log in", login_path  %></li>
-      <% end %>
-     </ul>
-     </nav>
-  </header>
-
-  <h1>this is the application page<h1>
-    <%= yield %>
-  </body>
+   <head>
+      <title>MonkeyMediaRanker</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   </head>
+   <body>
+      <header class="main-header">
+         <h2 class="header-inline"><%= link_to("Media Ranker", root_path, alt: "link to media ranker main page", class: "button") %></h2>
+         <h4 class="header-inline">| Ranking the Best of Everything</h4>
+         <nav class="main_nav">
+            <ul>
+               <li><%= link_to "View top media", root_path, alt: "link to main page", class: "button" %></li>
+               <li><%= link_to "View all media", works_path, alt: "link to all media", class: "button" %></li>
+               <li><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "button" %></li>
+               <% if session[:user_id] %>
+               <li><%= link_to "Log out", logout_path, method: :post %></li>
+               <%else %> 
+               <li><%= link_to "Log in", login_path  %></li>
+               <% end %>
+            </ul>
+         </nav>
+      </header>
+      <% unless flash.empty? %>
+      <section class="flash" >
+         <% flash.each do |name, message| %>
+         <div class=<%=name%>><%= message %></div>
+         <% end %>
+         <% end %>
+      </section>
+      <%= yield %>
+   </body>
 </html>
