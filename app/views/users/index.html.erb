@@ -1,2 +1,24 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<main>
+<h2>List of Users</h2>
+<table class="table">
+<thead>
+<tr>
+<th>Username:</th>
+<th>Votes:</th>
+<th>Joined:</th>
+</tr>
+</head>
+<tbody>
+<% @users.each do |user| %>
+<tr>
+<td><%= link_to user.name, user_path(user.id) %></td>
+<td><%= user.votes.length %></td>
+<%# https://www.shortcutfoo.com/app/dojos/ruby-date-format-strftime/cheatsheet %>
+<td><%= user.created_at.strftime("%m/%d/%y") %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+<h3 class="btn btn-secondary"><%= link_to "Back to Media List" %></h3>
+</main>
+
