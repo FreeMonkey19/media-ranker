@@ -1,13 +1,16 @@
 
 <section class="row">
-  <div>
-    <h2>
-      <span class="spotlight-header--prefix">Media Spotlight:</span>
-      <%# link to the spotlight book goes here
-      authors name goes under the words Media Spotlight
-      and then description <%# %>
-    </h2>
+<div>
+    <h3>
+      <span class="media-spotlight-header">Media Spotlight</span>
+      <%= link_to @winner.title, work_path(@winner.id), alt: "link to see details of work with most votes" %> by
+      <%= @winner.creator %>
+    </h3>
+    <p>
+      <%= @winner.votes.length%> votes - <%= @winner.description %>
+    </p>
   </div>
+  
 </section>
 
 <hr class="root-hr"/>
