@@ -35,6 +35,7 @@ class WorksController < ApplicationController
       flash[:success] = "#{@work.title} was successfully created!"
       return
     else
+      flash.now[:error] = "Error: #{@work.title} was NOT created!"
       render :new
       return
     end
