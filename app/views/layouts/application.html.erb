@@ -15,11 +15,14 @@
      <h4 class="header-inline">| Ranking the Best of Everything</h4>
      <nav class="main_nav">
      <ul>
-     <li><%= link_to("View top media", root_path, alt: "link to main page", class: "button") %></li>
-     <li><%= link_to("View all media", works_path, alt: "link to all media", class: "button") %></li>
-     <li><%= link_to("Add a new work", new_work_path, alt: "link to add a new work", class: "button") %></li>
-    <%# link to View all Users goes here %>
-    <%# login button goes here %>
+     <li><%= link_to "View top media", root_path, alt: "link to main page", class: "button" %></li>
+     <li><%= link_to "View all media", works_path, alt: "link to all media", class: "button" %></li>
+     <li><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "button" %></li>
+     <% if session[:user_id] %>
+      <li><%= link_to "Log out", logout_path, method: :post %></li>
+     <%else %> 
+      <li><%= link_to "Log in", login_path  %></li>
+      <% end %>
      </ul>
      </nav>
   </header>
