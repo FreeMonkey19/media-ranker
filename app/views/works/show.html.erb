@@ -1,13 +1,44 @@
+<main class="row">
+
 <div class="media-details">
     <h3><%= @work.title %></h3>
     <p>Created by: <%= @work.creator %></p>
     <p>Published: <%= @work.publication_year %></p>
     <p><%= @work.description %></p>
 
-    <a><%= link_to("Back to media ranks", root_path, alt: "link to media ranker main page", class: "button") %></a>
-    <a><%= link_to("Edit", edit_work_path(@work.id), alt: "link to edit work", class: "button") %></a>
-    <a><%= link_to("Delete", work_path(@work.id), method: :delete, alt: "link to delete work", class: "alert button", data: {confirm: "Are you sure? Deleting is permanent!"}) %></a>
+    <a><%= link_to("Back to media ranks", root_path, alt: "link to main page", class: "btn btn-primary") %></a>
+    <a><%= link_to("Edit", edit_work_path(@work.id), alt: "link to edit work", class: "btn btn-primary") %></a>
+    <a><%= link_to("Upvote", work_votes_path(@work.id), method: :post, alt: "link to upvote this work", class: "btn btn-primary") %></a>
+    <a><%= link_to("Delete", work_path(@work.id), method: :delete, alt: "link to delete work", class: "btn btn-danger", data: {confirm: "Are you sure? Deleting is permanent!"}) %></a>
 </div>
+
+<article class="table">
+  <h3><%= "#{@work.votes.length} Votes for this #{@work.category.capitalize}"%></h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @work.votes.each do |vote| %>
+      <tr>
+        <td><%= vote.user.name %></td>
+        <td><%= (vote.created_at).strftime('%m-%d-%Y') %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</article>
+</main>
+
+
+
+
+
+
+
 
 
 
