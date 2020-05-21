@@ -1,10 +1,11 @@
 
 <main class="row">
-<h3>User Summary: <%= @user.name %></h3>
+<h3 class="user">User Summary: <%= @user.name %></h3>
+<%# %b is the abbreviated month name ie:Jan %>
 <p>Joined site <%= (@user.created_at).strftime('%b %m, %Y')%></p>
 <h4>Votes</h4>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Media Title</th>
@@ -17,7 +18,7 @@
   <tbody>
       <% @user.votes.each do |vote| %>
       <tr>
-        <td><%= vote.work.title %></td>
+        <td><%= link_to(vote.work.title, work_path(work.id), alt: "link to work show page") %></td>
         <td><%= vote.work.creator %></td>
         <td><%= vote.work.publication_year %></td>
         <td><%= vote.work.category %></td>
@@ -27,7 +28,7 @@
   </tbody>
 </table>
 
-  <%= button_to("See all Users", users_path, method: :get, alt: "link to user index page", class: "button") %>
+  <%= button_to("See all Users", users_path, method: :get, alt: "link to all users", class: "btn btn-secondary") %>
 
-  <%= button_to("Back to Media List", root_path, method: :get, alt: "link to home page", class: "button") %>
+  <%= button_to("Back to Media List", root_path, method: :get, alt: "link to main page", class: "btn btn-primary") %>
 </main>
