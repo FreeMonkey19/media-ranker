@@ -1,0 +1,66 @@
+magic:
+  category: album
+  title: magic man
+  creator: heart
+  publication_year: 1988
+  description: female seattle rock band
+teenage:
+  category: album
+  title: teenage spirit
+  creator: nirvana 
+  publication_year: 1989
+  description: seattle grunge band
+pump:
+  category: album
+  title: pump
+  creator: steven tyler
+  publication_year: 1989
+  description: rock from boston
+drive:
+  category: album
+  title: I can't drive 55
+  creator: sammy hagar
+  publication_year: 1985
+  description: rock
+give:
+  category: album
+  title: Give It Up
+  creator: Bonnie Raitt
+  publication_year: 1972
+  description: folksy blues
+touch:
+  category: album
+  title: Touch
+  creator: eurythmics
+  publication_year: 1984
+  description: synth pop
+destroyer:
+  category: album
+  title: Destroyer
+  creator: Gene Simmons
+  publication_year: 1976
+  description: party rock
+king:
+  category: album
+  title: king of rock and roll
+  creator: elvis presley
+  publication_year: 1976
+  description: rock
+vitalogy:
+  category: album
+  title: vitalogy
+  creator: merle haggard
+  publication_year: 1996
+  description: country
+life:
+  category: album
+  title: life after death
+  creator: biggie
+  publication_year: 1997
+  description: hip hop
+radio:
+  category: album
+  title: Radio
+  creator: LL Cool J
+  publication_year: 1985
+  description: hip hop/rap
