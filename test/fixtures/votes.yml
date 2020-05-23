@@ -1,18 +1,18 @@
 vote1: 
   work: album1
-  user: cadams
+  user: user1
 vote2: 
   work: album2
-  user: cadams
+  user: user1
 vote3: 
   work: album2
-  user: kadams
+  user: user2
 vote4: 
   work: album2
-  user: badams
+  user: user3
 vote5: 
   work: album3
-  user: cadams
+  user: user1
 vote6:
   work: album3
-  user: kadams 
+  user: user2

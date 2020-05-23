@@ -16,49 +16,49 @@ album3:
   creator: steven tyler
   publication_year: 1989
   description: rock from boston
-drive:
+album4:
   category: album
   title: I can't drive 55
   creator: sammy hagar
   publication_year: 1985
   description: rock
-give:
+album5:
   category: album
   title: Give It Up
   creator: Bonnie Raitt
   publication_year: 1972
   description: folksy blues
-touch:
+album6:
   category: album
   title: Touch
   creator: eurythmics
   publication_year: 1984
   description: synth pop
-destroyer:
+album7:
   category: album
   title: Destroyer
   creator: Gene Simmons
   publication_year: 1976
   description: party rock
-king:
+album8:
   category: album
   title: king of rock and roll
   creator: elvis presley
   publication_year: 1976
   description: rock
-vitalogy:
+album9:
   category: album
   title: vitalogy
   creator: merle haggard
   publication_year: 1996
   description: country
-life:
+album10:
   category: album
   title: life after death
   creator: biggie
   publication_year: 1997
   description: hip hop
-radio:
+album11:
   category: album
   title: Radio
   creator: LL Cool J

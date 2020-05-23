@@ -14,7 +14,7 @@ def create
       flash[:success] = "Successfully upvoted!"
       redirect_to works_path(params[:work_id])
     else
-      flash[:error] = "Vote not recorded"
+      flash[:error] = "You can't vote twice for same work!"
       redirect_to works_path(params[:work_id])
     end
   end
