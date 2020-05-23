@@ -17,24 +17,35 @@
 // application page header
 .app-header__header {
   background-color: #b2dfdb;
-  padding: 100px
-  
-
-
+  padding: 32px, 16px, 8px, 16px;
 }
 
 
 #app-title a {
   color: #fc5f2e;
   font-weight: 100px;
-  padding-right: 100px;
   text-decoration: none;
-  
+  padding: 0, 25px, 0, 0;
+  border: 0, 2px, 0, 0;
+  margin: 0, 8px, 0, 0;
+}
+// .nav-item {
+//   color: red;
+//   margin: 16px, 32px, 0, 0;
+// }
 
+// .nav-link {
+//   padding: 8px, 16px, 8px, 16;
+
+// }
+
+li a {
+  color: red;
 }
 
-small {
-  color: white
+h1 {
+  background-color: Black;
+  margin: 25px, 0, 40px, 0;
 }
 
 
