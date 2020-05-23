@@ -1,28 +1,15 @@
 require "test_helper"
 
-describe Work do
+describe Work do 
+  before do 
+    @album1 = works(:album1)
+    @album2 = works(:album2)
+    @album3 = works(:album3)
+    @user1 = users(:user1)
+    @user2 = users(:user2)
+    @user3 = users(:user3)
+  end
 
- 
-
-    before do 
-      @album1 = works(:album1)
-      @album2 = works(:album2)
-      @album3 = works(:album3)
-      @user1 = users(:user1)
-      @user2 = users(:user2)
-      @user3 = users(:user3)
-    end
-
-      it "it is valid when all fields are present" do
-        expect(@album1.valid?).must_equal true
-      end
-
-      it "will have the required fields" do
-        [:category, :title, :creator, :publication_year, :description].each do |field|
-          expect(@album1).must_respond_to field
-      end
-    end
-    
   describe "validations" do
     let (:new_album) {
       Work.new(
@@ -33,6 +20,16 @@ describe Work do
         description: "new album description"
       )
     }
+
+    it "it is valid when all fields are present" do
+      expect(@album1.valid?).must_equal true
+    end
+
+    it "will have the required fields" do
+      [:category, :title, :creator, :publication_year, :description].each do |field|
+        expect(@album1).must_respond_to field
+      end
+    end
     
     it "fails validation when there is a missing title" do
       new_album.title = nil
@@ -101,6 +98,38 @@ describe Work do
       end
     end
   end
+
+  describe "custom methods" do
+    describe "top ten" do
+      before do
+        @category = "album"
+      end
+
+      it "sorts by vote count if there are works in the database" do      
+        expect(Work.top_ten(@category).first).must_equal @album2
+        expect(Work.top_ten(@category).second).must_equal @album3
+        expect(Work.top_ten(@category).third).must_equal @album1
+      end
+
+      it "only returns top 10 works in the category" do      
+        expect(Work.top_ten(@category).count).must_equal 10
+      end
+
+      it "gets less than 10 works if less than 10 present" do
+        Work.destroy_all
+        Work.create!(category: "album", title: "lonely in the database", creator: "lonely", publication_year: 2020, description: "little ol me")
+
+        expect(Work.top_ten(@category).count).must_equal 1
+      end
+
+      it "returns an empty array if category is empty" do
+        Work.destroy_all
+        top_albums = Work.top_ten(:album)
+
+        expect(top_albums).must_be_instance_of Array
+        expect(top_albums.size).must_equal 0
+      end
+    end
+  end
 end
   
-

@@ -52,3 +52,15 @@ vitalogy:
   creator: merle haggard
   publication_year: 1996
   description: country
+life:
+  category: album
+  title: life after death
+  creator: biggie
+  publication_year: 1997
+  description: hip hop
+radio:
+  category: album
+  title: Radio
+  creator: LL Cool J
+  publication_year: 1985
+  description: hip hop/rap
