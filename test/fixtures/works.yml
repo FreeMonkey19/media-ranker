@@ -1,16 +1,16 @@
-magic:
+album1:
   category: album
   title: magic man
   creator: heart
   publication_year: 1988
   description: female seattle rock band
-teenage:
+album2:
   category: album
   title: teenage spirit
   creator: nirvana 
   publication_year: 1989
   description: seattle grunge band
-pump:
+album3:
   category: album
   title: pump
   creator: steven tyler
