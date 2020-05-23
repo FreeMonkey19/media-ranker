@@ -8,16 +8,19 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
    </head>
    <body>
-      <header class="app-header__nav">
-         <h1 class="header-inline"><%= link_to "Media Ranker", root_path, alt: "link to media ranker main page", class: "button" %></h1>
-         <h4 class="header-inline">| Ranking the Best of Everything</h4>
-         <nav class="main_nav">
+      <header class="app-header__header">
+         <h1 id="app-title"><%= link_to "Media Ranker", root_path, alt: "link to media ranker main page" %>
+         <small>| Ranking the Best of Everything</small></h1>
+         <nav class="app-header__nav">
             <ul class="nav app-header__site-nav-container">
                <li><%= link_to "View top media", root_path, alt: "link to main page", class: "nav-item app-header__nav_item" %></li>
                <li><%= link_to "View all media", works_path, alt: "link to all media", class: "nav-item app-header__nav_item" %></li>
                <li><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "nav-item app-header__nav_item" %></li>
-                <%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-item app-header__nav_item" %>
+               <%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-item app-header__nav_item" %>
+
             </ul>
+            <ul>
+          
             <div class="float-right">
                <% if session[:user_id] %>
                <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>

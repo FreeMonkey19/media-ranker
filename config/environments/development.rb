@@ -7,7 +7,8 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
-  config.eager_load = false
+  # https://stackoverflow.com/questions/56757167/how-to-debug-rails-app-that-crashes-on-heroku-runs-fine-locally
+  config.eager_load = true
 
   # Show full error reports.
   config.consider_all_requests_local = true
