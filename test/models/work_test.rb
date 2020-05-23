@@ -2,64 +2,97 @@ require "test_helper"
 
 describe Work do
 
-  describe "validations" do
+ 
 
     before do 
-      work = Work.new(category: "Test Category", creator: "Test Creator", title: "Test Title", publication_year: 2020, description: "Test Description")
-      @work = Work.new(category: "Testing Testing Category", creator: "Testing Creator", title: "Testing Title", publication_year: 2019, description: "Testing Description")
+      @album1 = works(:magic)
+      @album2 = works(:teenage)
+      @album3 = works(:pump)
+      @user1 = users(:user1)
+      @user2 = users(:user2)
+      @user3 = users(:user3)
     end
 
-    it "it is valid when all fields are present" do
+      it "it is valid when all fields are present" do
+        expect(@album1.valid?).must_equal true
+      end
+
+      it "will have the required fields" do
+        [:category, :title, :creator, :publication_year, :description].each do |field|
+          expect(@album1).must_respond_to field
+      end
+    end
     
-      expect(@work.valid?).must_equal true
-    end
-
+  describe "validations" do
+    let (:new_album) {
+      Work.new(
+        category: "album",
+        title: "new album title",
+        creator: "new album creator",
+        publication_year: 2020,
+        description: "new album description"
+      )
+    }
+    
     it "fails validation when there is a missing title" do
-      @work.title = nil
+      new_album.title = nil
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:title)).must_equal true
-      expect(@work.errors.messages[:title].include?("can't be blank")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:title)).must_equal true
+      expect(new_album.errors.messages[:title].include?("can't be blank")).must_equal true
     end
+  
 
     it "fails validation when a title already exists in the same category" do
-      Work.create(category: @work.category, creator: @work.creator, title: @work.title, publication_year: @work.publication_year, description: @work.description)
+      new_album.title = @album1.title
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:title)).must_equal true
-      expect(@work.errors.messages[:title].include?("has already been taken")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:title)).must_equal true
+      expect(new_album.errors.messages[:title].include?("has already been taken")).must_equal true
    end
+
    
    it "fails validation when there is a missing category" do
-      @work.category = nil
+      new_album.category = nil
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:category)).must_equal true
-      expect(@work.errors.messages[:category].include?("can't be blank")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:category)).must_equal true
+      expect(new_album.errors.messages[:category].include?("can't be blank")).must_equal true
    end
+ 
 
    it "fails validation when there is a missing creator" do
-      @work.creator = nil
+      new_album.creator = nil
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:creator)).must_equal true
-      expect(@work.errors.messages[:creator].include?("can't be blank")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:creator)).must_equal true
+      expect(new_album.errors.messages[:creator].include?("can't be blank")).must_equal true
    end
+ 
 
    it "fails validation when there is a missing description" do
-      @work.description = nil
+      new_album.description = nil
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:description)).must_equal true
-      expect(@work.errors.messages[:description].include?("can't be blank")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:description)).must_equal true
+      expect(new_album.errors.messages[:description].include?("can't be blank")).must_equal true
    end
+ 
 
    it "fails validation when there is a missing publication_year" do
-      @work.publication_year = nil
+      new_album.publication_year = nil
 
-      expect(@work.valid?).must_equal false
-      expect(@work.errors.messages.include?(:publication_year)).must_equal true
-      expect(@work.errors.messages[:publication_year].include?("can't be blank")).must_equal true
+      expect(new_album.valid?).must_equal false
+      expect(new_album.errors.messages.include?(:publication_year)).must_equal true
+      expect(new_album.errors.messages[:publication_year].include?("can't be blank")).must_equal true
    end
+
+   it "passes validation with same title but two different categories" do
+      Work.create!(category: "book", title: new_album.title, creator: new_album.creator, publication_year: 2020, description: "new book same title as album")
+
+      expect(new_album.valid?).must_equal true
+      expect(new_album.errors.messages).must_be_empty
+    end
   end
+  
 end
