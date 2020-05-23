@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title></title>
+      <title>MonkeyMediaRanker</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
    </head>
    <body>
+      <header class="app-header__header">
+         <h1 id="app-title"><%= link_to "Media Ranker", root_path, alt: "link to media ranker main page" %>
+            <small class="text-white">| Ranking the Best of Everything</small>
+         </h1>
+         <nav class="app-header__nav">
+            <ul class="nav app-header__site-nav-container">
+               <li class="nav-item app-header__nav_item"><%= link_to "View top media", root_path, alt: "link to main page", class: "nav-link header-link" %></li>
+               <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path, alt: "link to all media", class: "nav-link header-link" %></li>
+               <li class="nav-item app-header__nav_item"><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "nav-link header-link" %></li>
+               <li class="nav-item app-header__nav_item"><%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-link header-link" %></li>
+               <li class="nav-item app-header__nav_item">
+                  <% if session[:user_id] %>
+                  <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
+                  <%else %> 
+                  <%= link_to "Log in", login_path, class: "btn btn-primary"  %>
+                  <% end %>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      <% unless flash.empty? %>
+      <section class="flash" >
+         <% flash.each do |name, message| %>
+         <div class=<%=name%>><%= message %></div>
+         <% end %>
+         <% end %>
+      </section>
       <%= yield %>
    </body>
 </html>
