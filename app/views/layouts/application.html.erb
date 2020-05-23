@@ -16,19 +16,21 @@
                <li><%= link_to "View top media", root_path, alt: "link to main page", class: "nav-item app-header__nav_item" %></li>
                <li><%= link_to "View all media", works_path, alt: "link to all media", class: "nav-item app-header__nav_item" %></li>
                <li><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "nav-item app-header__nav_item" %></li>
-               <%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-item app-header__nav_item" %>
+               <li><%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-item app-header__nav_item" %></li>
 
             </ul>
-            <ul>
+            <ul class="nav app-header__user-nav-container">
+            <li class="nav-item app-header__nav_item">
           
-            <div class="float-right">
+           
                <% if session[:user_id] %>
                <%= link_to "Log out", logout_path, method: :post, class: "btn btn-primary" %>
                <%else %> 
                <%= link_to "Log in", login_path, class: "btn btn-primary"  %>
                <% end %>
+               </li>
             
-            </div>
+            </ul>
             
          </nav>
       </header>
