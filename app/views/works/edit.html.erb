@@ -1,19 +1,9 @@
-<main class="row">
+ <section>
+  <h2>Edit This <%= @work.category.capitalize %></h2>
 
-  <h3>Edit <%= @work.category.capitalize %></h3>
-
-  <section>
-    <% if @work.errors.any? %>
-  <ul class="errors">
-    <% @work.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-    <%= render partial: "form", locals:{ action_name: "Edit Work"} %>
+ 
+  
+    <%= render partial: "form", locals:{ action_name: "Update Work"} %>
   </section>
 
-</main>
 
