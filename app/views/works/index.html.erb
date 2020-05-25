@@ -1,4 +1,4 @@
-<main class="row">
+
    <section class="media-table">
       <% if @works.nil? %>
       <h3>Search Results</h3>
@@ -6,7 +6,7 @@
       <% elsif params[:search] %>
       <h3>Search Results</h3>
       <h5>Works / Search: <%= params[:search] %></h5>
-      <table>
+      <table class="table">
          <thead>
             <tr>
                <th width="80">Vote </th>
@@ -107,6 +107,6 @@
       </table>
       <%= button_to("View top media", root_path, method: :get, alt: "link to main page", class: "button") %>
       <%= button_to("Add a new work", new_work_path, method: :get, alt: "link to create new work", class: "button") %>
-   </section>
+ 
    <% end %>
-</main>
+     </section>
