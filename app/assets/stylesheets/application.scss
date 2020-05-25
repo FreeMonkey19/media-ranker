@@ -116,6 +116,11 @@ header {
   margin: 25px auto 40px auto;
 }
 
+small, .small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
 .app-header__header h1 small {
   color: white;
 }
@@ -177,19 +182,11 @@ a, h2, h3 {
   color: #26A69A;
 }
 
+
 .btn-primary {
   background-color: #26A69A;
-  color: #fff;
+  color: white;
   border-color: #26A69A;
-}
-
-.btn-primary:hover {
-  background-color: rgb(24, 107, 99);
-  border-color:  rgb(24, 107, 99);
-}
-
-.btn:not(:disabled):not(.disabled) {
-  cursor: pointer;
 }
 
 .btn {
@@ -209,6 +206,21 @@ a, h2, h3 {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.btn-primary:hover {
+  background-color: rgb(24, 107, 99);
+  border-color:  rgb(24, 107, 99);
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
 
 .form-control {
   display: block;
