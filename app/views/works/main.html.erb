@@ -1,24 +1,23 @@
 
-<section class="row">
-<div>
-    <h3>
-      <span class="media-spotlight-header">Media Spotlight</span>
-      <%= link_to @winner.title, work_path(@winner.id), alt: "link to see details of work with most votes" %> by
+<section class="spotlight">
+
+    <h2 class="spotlight__header">
+      <span class="spotlight__header--prefix">Media Spotlight</span>
+      <%= link_to @winner.title, work_path(@winner.id), alt: "link to see details of work with most votes", class: "spotlight__link-to" %> by
       <%= @winner.creator %>
-    </h3>
-    <p>
+    </h2>
+    <p class="spotlight__description">
       <%= @winner.votes.length%> votes - <%= @winner.description %>
     </p>
-  </div>
+ 
   
 </section>
 
 <hr class="root-hr"/>
 
 
-  <div class="row">
-  
-    <div class="col top-ten"> <h2>Top Movies</h2>
+   <section class="top-ten__container">
+    <section class="top-ten__list-container"> <h2>Top Movies</h2>
      <ul>
           <% @works.top_ten("movie").each do |work| %>
           <li>
@@ -27,12 +26,13 @@
              </h4>
           <% end %>
           </li>
-      </ul>
-    </div>
+      </section>
+   
 
 
+  
 
-        <div class="col top-ten"> <h2>Top Books</h2>
+       <section class="top-ten__list-container"><h2>Top Books</h2>
          <ul>
             <% @works.top_ten("book").each do |work| %>
           <li>
@@ -42,9 +42,10 @@
           <% end %>
           </li>
         </ul>
-      </div>
-                
-        <div class="col top-ten"> <h2>Top Albums</h2>
+      </section>
+                  
+
+        <section class="top-ten__list-container"><h2>Top Albums</h2>
           <ul>
             <% @works.top_ten("album").each do |work| %>
             <li>
@@ -54,7 +55,7 @@
             <% end %>
             </li>
          </ul>
-        </div>
+        </section>
     
-  </div>
+  </section>
  
