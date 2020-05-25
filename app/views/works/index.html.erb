@@ -1,4 +1,4 @@
-
+<main>
    <section class="media-table">
       <% if @works.nil? %>
       <h3>Search Results</h3>
@@ -30,10 +30,10 @@
       </table>
    </section>
    <% else %>
-   <h3>List of Works</h3>
+   <h2>List of Works</h2>
    <section class="media-table">
       <h4>Albums</h4>
-      <table>
+      <table class="table">
          <thead>
             <tr>
                <th width="80">Vote </th>
@@ -50,7 +50,8 @@
                <td><%= link_to(work.title, work_path(work.id), alt: "link to work show page") %></td>
                <td><%= work.creator %></td>
                <td><%= work.publication_year %></td>
-               <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "button upvote")%></td>
+            <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "upvote btn btn-primary")%></td>
+
             </tr>
             <% end %>
          </tbody>
@@ -58,7 +59,7 @@
    </section>
    <section class="media-table">
       <h4>Books</h4>
-      <table>
+      <table class="table">
          <thead>
             <tr>
                <th width="80">Vote </th>
@@ -75,7 +76,8 @@
                <td><%= link_to(work.title, work_path(work.id), alt: "link to work show page") %></td>
                <td><%= work.creator %></td>
                <td><%= work.publication_year %></td>
-               <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "button upvote")%></td>
+               <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "upvote btn btn-primary")%></td>
+
             </tr>
             <% end %>
          </tbody>
@@ -83,7 +85,7 @@
    </section>
    <section class="media-table">
       <h4>Movies</h4>
-      <table>
+      <table class="table">
          <thead>
             <tr>
                <th width="80">Vote </th>
@@ -100,13 +102,14 @@
                <td><%= link_to(work.title, work_path(work.id), alt: "link to work show page") %></td>
                <td><%= work.creator %></td>
                <td><%= work.publication_year %></td>
-               <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "button upvote")%></td>
+               <td><%= link_to("Upvote", work_votes_path(work.id), method: :post, alt: "link to upvote this work", class: "upvote btn btn-primary")%></td>
             </tr>
             <% end %>
          </tbody>
       </table>
-      <%= button_to("View top media", root_path, method: :get, alt: "link to main page", class: "button") %>
-      <%= button_to("Add a new work", new_work_path, method: :get, alt: "link to create new work", class: "button") %>
+      <%= link_to("View top media", root_path, method: :get, alt: "link to main page", class: "btn btn-secondary") %>
+      <%= link_to("Add a new work", new_work_path, method: :get, alt: "link to create new work", class: "btn btn-primary") %>
  
    <% end %>
      </section>
+     </main>
