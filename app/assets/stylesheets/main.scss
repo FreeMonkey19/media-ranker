@@ -1,12 +1,17 @@
 main {
   padding: 2rem;
 }
+// spotlight
+
 .spotlight {
   margin: 16px;
   padding: 0, 32px, 32px, 32px;
 }
 .spotlight__header {
   color: #26A69A;
+}
+.spotlight__link-to {
+  border-bottom: 5px solid;
 }
 
 .spotlight__header--prefix {
@@ -19,11 +24,11 @@ main {
   border-bottom-color: #26A69A;
 }
 
+// top ten
+
 .top-ten__header {
   color: #26A69A;
-  border-bottom: 2px solid;
-  border-bottom-color: #B2DFDB;
-  border: 2px;
+  border-bottom: 2px solid #B2DFDB;
   margin: 8px;
 }
 
