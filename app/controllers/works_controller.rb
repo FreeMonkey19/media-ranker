@@ -49,16 +49,16 @@ class WorksController < ApplicationController
   end
 
   def update
-	  if @work.nil?
-		  head :not_found
-		  return
-		elsif @work.update(work_params)
-		  redirect_to work_path(@work.id)
-		  return 
-		else
-			render :edit 
-			return 
-		end
+	if @work.nil?
+	head :not_found
+	return
+	elsif @work.update(work_params)
+	redirect_to work_path(@work.id)
+	return 
+	else
+	render :edit 
+	return 
+	end
 	end
 
   def destroy
