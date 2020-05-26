@@ -1,5 +1,4 @@
 class WorksController < ApplicationController
-
   before_action :find_work, only: [:show, :edit, :update, :destroy]
 
   def main
@@ -23,7 +22,7 @@ class WorksController < ApplicationController
     end
   end
 
-  def new # renders form for create action
+  def new 
     @work = Work.new
   end
 
@@ -50,12 +49,12 @@ class WorksController < ApplicationController
   end
 
   def update
-		if @work.nil?
-			head :not_found
-			return
+	  if @work.nil?
+		  head :not_found
+		  return
 		elsif @work.update(work_params)
-			redirect_to work_path(@work.id)
-			return 
+		  redirect_to work_path(@work.id)
+		  return 
 		else
 			render :edit 
 			return 
