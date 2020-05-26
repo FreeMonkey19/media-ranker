@@ -100,6 +100,15 @@ describe Work do
   end
 
   describe "custom methods" do
+    describe "winner" do
+      it "returns Work with most votes" do
+        winner = works(:album2)
+        expect(Work.winner).must_equal winner
+        expect(Work.winner).must_be_instance_of Work
+        expect(Work.winner.votes.length).must_equal 3
+      end
+    end
+
     describe "top ten" do
       before do
         @category = "album"
@@ -124,10 +133,19 @@ describe Work do
 
       it "returns an empty array if category is empty" do
         Work.destroy_all
-        top_albums = Work.top_ten(:album)
+        top_albums = Work.top_ten(@category)
 
         expect(top_albums).must_be_instance_of Array
         expect(top_albums.size).must_equal 0
+      end
+    end
+    
+    describe "display_by_votes" do
+      it "returns an array of works by vote count in DESC order" do
+        most_votes = works(:album2)
+        
+        expect(Work.display_by_votes(:album).first).must_equal most_votes
+        expect(Work.display_by_votes(:album).first.votes.count).must_equal 3
       end
     end
   end
