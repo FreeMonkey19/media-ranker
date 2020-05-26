@@ -103,7 +103,6 @@ header {
   padding: 2rem 1rem 0.5rem 1rem;
 }
 
-
 .app-header__header h1 a {
   color: #FF5722;
   padding-right: 25px;
@@ -156,14 +155,11 @@ ul {
   padding-inline-start: 40px;
 }
 
-
-
 .app-header__nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 
 .app-header__nav_item .nav-link {
   color: #00796B;
@@ -181,7 +177,6 @@ ul {
 a, h2, h3 {
   color: #26A69A;
 }
-
 
 .btn-primary {
   background-color: #26A69A;
@@ -216,11 +211,9 @@ a, h2, h3 {
   cursor: pointer;
 }
 
-
 .form-group {
   margin-bottom: 1rem;
 }
-
 
 .form-control {
   display: block;
@@ -239,6 +232,7 @@ a, h2, h3 {
 
 .works-votes__header {
   color: black;
+  padding-top: 32px;
 }
 
 p {
@@ -264,12 +258,10 @@ p {
   border-top: 1px solid #dee2e6;
 }
 
-
 table {
   border-collapse: collapse;
   border-spacing: 2px;
 }
-
 
 .alert {
   position: relative;
@@ -278,10 +270,6 @@ table {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-}
-
-.alert {
-  margin: 0;
 }
 
 .alert-success {

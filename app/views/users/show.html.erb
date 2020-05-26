@@ -2,7 +2,7 @@
 <main>
 <h2 class="user">User Summary: <%= @user.name %></h2>
 <%# %b is the abbreviated month name ie:Jan %>
-<p>Joined site <%= (@user.created_at).strftime('%b %m, %Y')%></p>
+<p>Joined site: <%= (@user.created_at).strftime('%b %m, %Y')%></p>
 <section class="user-votes__container">
 <h3 class="user-votes__header">Votes</h3>
 
