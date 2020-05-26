@@ -11,7 +11,7 @@
 <hr class="root-hr"/>
 <section class="top-ten__container">
    <section class="top-ten__list-container">
-      <h2 id="top-ten-col" class="top-ten__header">Top Movies</h2>
+      <h2 class="top-ten__header">Top Movies</h2>
       <ul class ="list-group top-ten__list">
          <% @works.top_ten("movie").each do |work| %>
          <li class="list-group-item">
@@ -24,7 +24,7 @@
       </ul>
    </section>
    <section class="top-ten__list-container">
-      <h2 id="top-ten-col" class="top-ten__header">Top Books</h2>
+      <h2 class="top-ten__header">Top Books</h2>
       <ul class ="list-group top-ten__list">
          <% @works.top_ten("book").each do |work| %>
          <li class="list-group-item">
@@ -37,7 +37,7 @@
       </ul>
    </section>
    <section class="top-ten__list-container">
-      <h2 id="top-ten-col" class="top-ten__header">Top Albums</h2>
+      <h2 class="top-ten__header">Top Albums</h2>
       <ul class ="list-group top-ten__list">
          <% @works.top_ten("album").each do |work| %>
          <li class="list-group-item">
