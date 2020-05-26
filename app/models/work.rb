@@ -19,6 +19,6 @@ def self.winner
   end
 
   def self.display_by_votes(category)
-    return Work.where(category: category).sort_by {|work| -work.votes.count}
+    return Work.where(category: category).sort_by {|work| -work.votes.length}
   end
 end
