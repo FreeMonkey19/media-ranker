@@ -1,11 +1,6 @@
- <main>
- <section>
-  <h2>Edit This <%= @work.category.capitalize %></h2>
-
- 
-  
-    <%= render partial: "form", locals:{ action_name: "Update Work"} %>
-  </section>
-  </main>
-
-
+<main>
+   <section>
+      <h2>Edit This <%= @work.category.capitalize %></h2>
+      <%= render partial: "form", locals:{ action_name: "Update Work"} %>
+   </section>
+</main>

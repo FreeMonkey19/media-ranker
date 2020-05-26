@@ -7,7 +7,6 @@
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
       <%= favicon_link_tag 'https://i.ibb.co/DtQQ1Dw/owl.png' %>
-
    </head>
    <body>
       <header class="app-header__header">
@@ -20,27 +19,24 @@
                <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path, alt: "link to all media", class: "nav-link header-link" %></li>
                <li class="nav-item app-header__nav_item"><%= link_to "Add a new work", new_work_path, alt: "link to add a new work", class: "nav-link header-link" %></li>
                <li class="nav-item app-header__nav_item"><%= link_to "View all users", users_path, method: :get, alt: "link to user index", class: "nav-link header-link" %></li>
-              </ul>
-              <ul class="nav app-header__user-nav-container">
-                    <% current_user = User.find_by(id: session[:user_id]) %>
-
-          <% if current_user %>
-            <li class="nav-item app-header__nav_item">
-              <%= link_to "Logged in as #{current_user.name}", user_path(current_user), class: "btn btn-primary"%>
-            </li>
-            <li class="nav-item app-header__nav_item">
-              <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary"%>
-            </li>
-
-          <% else %>
-            <li class="nav-item app-header__nav_item">
-              <%= link_to "Log In", login_path, class: "btn btn-primary"%>
-            </li>
-          <% end %>
-          </ul>
+            </ul>
+            <ul class="nav app-header__user-nav-container">
+               <% current_user = User.find_by(id: session[:user_id]) %>
+               <% if current_user %>
+               <li class="nav-item app-header__nav_item">
+                  <%= link_to "Logged in as #{current_user.name}", user_path(current_user), class: "btn btn-primary"%>
+               </li>
+               <li class="nav-item app-header__nav_item">
+                  <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary"%>
+               </li>
+               <% else %>
+               <li class="nav-item app-header__nav_item">
+                  <%= link_to "Log In", login_path, class: "btn btn-primary"%>
+               </li>
+               <% end %>
+            </ul>
          </nav>
       </header>
-
       <% unless flash.empty? %>
       <section class="alert__container" >
          <% flash.each do |name, message| %>
