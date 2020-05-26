@@ -17,4 +17,8 @@ def self.winner
     ten = sorted.first(10)
     return ten
   end
+
+  def self.display_by_votes(category)
+    return Work.where(category: category).sort_by {|work| -work.votes.count}
+  end
 end
